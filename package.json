@@ -1,0 +1,29 @@
+{
+  "name": "databox-data-broker",
+  "version": "0.1.0",
+  "description": "The Databox Docker container that provides any data to app containers",
+  "scripts": {
+    "start": "lsc src/main.ls",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yousefamar/databox-data-broker.git"
+  },
+  "keywords": [
+    "docker",
+    "databox",
+    "personal",
+    "data",
+    "broker"
+  ],
+  "author": "Yousef Amar <yousef@amar.io> (http://yousefamar.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yousefamar/databox-data-broker/issues"
+  },
+  "homepage": "https://github.com/yousefamar/databox-data-broker#readme",
+  "dependencies": {
+    "livescript": "^1.4.0"
+  }
+}
