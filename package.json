@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/yousefamar/databox-data-broker#readme",
   "dependencies": {
-    "livescript": "^1.4.0"
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "livescript": "^1.4.0",
+    "twitter": "^1.2.5"
   }
 }
