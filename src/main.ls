@@ -14,6 +14,7 @@ app.post '/twitter/statuses/home_timeline' (req, res) !->
     res.write-head 400
     res.end!
     return
+  res.header 'Access-Control-Allow-Origin': \*
   tweets |> JSON.stringify |> res.end
 
 app.post '/400' (req, res) !->
