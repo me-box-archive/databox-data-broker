@@ -1,9 +1,28 @@
-require! twitter
+require! { flutter: Flutter }
 
-client = new twitter do
-  consumer_key: \e5Cu9LDfpxkYu1jcAOWRubBGX
-  consumer_secret: \5QEXojGQ8gT6yznDbw5d0SUsNVYyELR6tDIfqKWuL8ts3SMRsn
-  access_token_key: \14149787-txkLSHfMFZsdSV6wENDtPEw68YRzXX3ievzaZLpSO
-  access_token_secret: \6HkhDw4lHnHcxYXFsB5euOiCdo0rSkXOtaIHYjptRABGV
+access-token = null
+secret = null
 
-export get = (url, callback) -> client.get url, callback
+flutter = new Flutter do
+  consumer-key:    \NxF3gHsQP21Xpd8NQyAAZRoId
+  consumer-secret: \q54NqcvTggzoP4j0z5SNb8HhpuGdc9GQYaEqKDZD3BA1EOnGLP
+  login-callback: 'http://localhost:7999/twitter/callback'
+  cache: false
+
+  auth-callback: (req, res, next) !->
+    # Authentication failed, req.error contains details
+    return if req.error
+
+    access-token := req.session.oauth-access-token
+    secret := req.session.oauth-access-token-secret
+
+    # Store to file here
+
+    res.redirect \/
+
+export flutter.connect
+export flutter.auth
+
+export fetch = (url, data, callback) -> flutter.API.fetch url, data, access-token, secret, callback
+
+export is-signed-in = -> access-token? and secret?
