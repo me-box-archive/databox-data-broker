@@ -27,6 +27,7 @@ app.get '/twitter/api/*' (req, res) !->
   results |> JSON.stringify |> res.end
 
 app.get '/twitter/is-signed-in' (req, res) !->
+  res.header 'Access-Control-Allow-Origin': \*
   res.end '' + twitter.is-signed-in!
 
 app.post '/400' (req, res) !->
