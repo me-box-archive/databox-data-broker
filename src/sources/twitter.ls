@@ -18,7 +18,7 @@ flutter = new Flutter do
 
     # Store to file here
 
-    res.redirect \/
+    res.redirect \//localhost:8080
 
 export flutter.connect
 export flutter.auth
