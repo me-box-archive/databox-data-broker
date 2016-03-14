@@ -7,12 +7,12 @@
 	</head>
 	<body>
 		<div id="twitter-sign-in-button" style="display: none">
-			<a href="/twitter/connect">
-				<img alt="Sign in with Twitter" src="/sign-in-with-twitter-gray.png">
+			<a href="/broker/twitter/connect">
+				<img alt="Sign in with Twitter" src="/broker/sign-in-with-twitter-gray.png">
 			</a>
 		</div>
 		<script>
-			$.get('/twitter/is-signed-in', {}, function(isSignedIn) {
+			$.get('/broker/twitter/is-signed-in', {}, function(isSignedIn) {
 				if (isSignedIn === 'false')
 					$('#twitter-sign-in-button').show();
 			});
