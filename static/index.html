@@ -3,14 +3,37 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Databox Broker</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<div id="twitter-sign-in-button" style="display: none">
-			<a href="/broker/twitter/connect">
-				<img alt="Sign in with Twitter" src="/broker/sign-in-with-twitter-gray.png">
-			</a>
-		</div>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=691061937624319";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+		<button type="button" class="btn btn-default navbar-btn">Add Data Source</button>
+		<ul class="list-group">
+			<li class="list-group-item">
+				<div id="twitter-sign-in-button" style="display: none">
+					<a href="/broker/twitter/connect" onclick="javascript:void window.open('/broker/twitter/connect','Twitter OAuth','toolbar=0,menubar=0,location=0,status=0,scrollbars=0,resizable=1');return false;">
+						<img alt="Sign in with Twitter" src="/broker/sign-in-with-twitter-gray.png">
+					</a>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+			</li>
+			<li class="list-group-item">
+				<a href="#">Instagram</a>
+			</li>
+		</ul>
 		<script>
 			$.get('/broker/twitter/is-signed-in', {}, function(isSignedIn) {
 				if (isSignedIn === 'false')
