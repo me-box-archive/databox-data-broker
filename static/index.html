@@ -22,8 +22,8 @@
 		<ul class="list-group">
 			<li class="list-group-item">
 				<div id="twitter-sign-in-button" style="display: none">
-					<a href="/broker/twitter/connect" onclick="javascript:void window.open('/broker/twitter/connect','Twitter OAuth','toolbar=0,menubar=0,location=0,status=0,scrollbars=0,resizable=1');return false;">
-						<img alt="Sign in with Twitter" src="/broker/sign-in-with-twitter-gray.png">
+					<a href="twitter/connect" onclick="javascript:void window.open('twitter/connect','Twitter OAuth','toolbar=0,menubar=0,location=0,status=0,scrollbars=0,resizable=1');return false;">
+						<img alt="Sign in with Twitter" src="sign-in-with-twitter-gray.png">
 					</a>
 				</div>
 			</li>
@@ -35,7 +35,7 @@
 			</li>
 		</ul>
 		<script>
-			$.get('/broker/twitter/is-signed-in', {}, function(isSignedIn) {
+			$.get('twitter/is-signed-in', {}, function(isSignedIn) {
 				if (isSignedIn === 'false')
 					$('#twitter-sign-in-button').show();
 			});
